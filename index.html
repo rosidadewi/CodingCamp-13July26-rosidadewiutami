@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header class="header">
+    <div class="header__left">
+      <p id="greeting" class="greeting" title="Click to set your name"></p>
+      <p id="datetime" class="datetime"></p>
+    </div>
+    <button id="themeToggle" class="btn btn--icon" title="Toggle dark / light mode">🌙</button>
+  </header>
+
+  <!-- ── NAME MODAL ── -->
+  <div id="nameModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="nameModalTitle">
+    <div class="modal__box">
+      <h2 id="nameModalTitle">What's your name?</h2>
+      <input id="nameInput" class="input" type="text" placeholder="Enter your name…" maxlength="40" />
+      <div class="modal__actions">
+        <button id="nameSave" class="btn btn--primary">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="main">
+
+    <!-- ── FOCUS TIMER ── -->
+    <section class="card" aria-labelledby="timerHeading">
+      <div class="card__header">
+        <h2 id="timerHeading">Focus Timer</h2>
+        <button id="editDuration" class="btn btn--sm btn--secondary" title="Change timer duration">✏️ Edit</button>
+      </div>
+
+      <div id="timerDisplay" class="timer__display" aria-live="polite">25:00</div>
+
+      <div id="durationEditor" class="duration-editor hidden">
+        <label for="durationInput" class="label">Minutes:</label>
+        <input id="durationInput" class="input input--sm" type="number" min="1" max="120" value="25" />
+        <button id="durationSave" class="btn btn--primary btn--sm">Apply</button>
+      </div>
+
+      <div class="timer__controls">
+        <button id="timerStart" class="btn btn--primary">▶ Start</button>
+        <button id="timerStop"  class="btn btn--secondary" disabled>⏸ Stop</button>
+        <button id="timerReset" class="btn btn--secondary">↺ Reset</button>
+      </div>
+
+      <p id="timerStatus" class="timer__status" aria-live="polite"></p>
+    </section>
+
+    <!-- ── TO-DO LIST ── -->
+    <section class="card" aria-labelledby="todoHeading">
+      <div class="card__header">
+        <h2 id="todoHeading">To-Do List</h2>
+        <span id="todoCount" class="badge">0 tasks</span>
+      </div>
+
+      <form id="todoForm" class="todo__form" novalidate>
+        <input id="todoInput" class="input" type="text"
+               placeholder="Add a new task…" maxlength="120" aria-label="New task" />
+        <button type="submit" class="btn btn--primary">Add</button>
+      </form>
+
+      <ul id="todoList" class="todo__list" aria-label="Task list"></ul>
+    </section>
+
+    <!-- ── QUICK LINKS ── -->
+    <section class="card" aria-labelledby="linksHeading">
+      <div class="card__header">
+        <h2 id="linksHeading">Quick Links</h2>
+      </div>
+
+      <form id="linkForm" class="link__form" novalidate>
+        <input id="linkLabel" class="input" type="text"
+               placeholder="Label (e.g. YouTube)" maxlength="40" aria-label="Link label" />
+        <input id="linkUrl" class="input" type="url"
+               placeholder="https://…" maxlength="200" aria-label="Link URL" />
+        <button type="submit" class="btn btn--primary">Add</button>
+      </form>
+
+      <div id="linkList" class="link__list" aria-label="Quick links"></div>
+    </section>
+
+  </main>
+
+  <!-- ── EDIT TASK MODAL ── -->
+  <div id="editModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="editModalTitle">
+    <div class="modal__box">
+      <h2 id="editModalTitle">Edit Task</h2>
+      <input id="editInput" class="input" type="text" maxlength="120" />
+      <div class="modal__actions">
+        <button id="editSave"   class="btn btn--primary">Save</button>
+        <button id="editCancel" class="btn btn--secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
